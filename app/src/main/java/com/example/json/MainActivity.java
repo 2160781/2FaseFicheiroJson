@@ -3,6 +3,7 @@ package com.example.json;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -21,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        get_jason();
+        get_json();
     }
 
-    public void get_jason(){
+    public void get_json(){
 
         String json;
         try{
-            InputStream is = getAssets().open("JsonTest");
+            InputStream is = getAssets().open("JsonTest.txt");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-        Toast.makeText(getApplicationContext(),numberlist.toString(),Toast.LENGTH_LONG).show();
+       Toast.makeText(getApplicationContext(),numberlist.toString(),Toast.LENGTH_LONG).show();
 
         }catch (IOException e){
             e.printStackTrace();
